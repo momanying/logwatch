@@ -1,0 +1,308 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  color: #333;
+  background-color: #f7f7f7;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Tea 组件样式模拟 */
+.tea-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.tea-layout__header {
+  height: 50px;
+  background-color: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.tea-layout__body {
+  flex: 1;
+  overflow: auto;
+}
+
+.tea-layout__content {
+  padding: 0;
+}
+
+.tea-card {
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+}
+
+.tea-card__body {
+  padding: 16px;
+}
+
+.tea-card__body-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.tea-form__item {
+  margin-bottom: 16px;
+}
+
+.tea-form__label {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.tea-form__content {
+  width: 100%;
+}
+
+.tea-select {
+  position: relative;
+  width: 100%;
+  height: 32px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+}
+
+.tea-select__control {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+}
+
+.tea-select__text {
+  flex: 1;
+}
+
+.tea-input {
+  position: relative;
+  width: 100%;
+  height: 32px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+}
+
+.tea-input__prefix {
+  padding: 0 8px;
+  color: #999;
+}
+
+.tea-input__control {
+  flex: 1;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 0 12px;
+  font-size: 14px;
+}
+
+.tea-datepicker {
+  position: relative;
+  width: 100%;
+  height: 32px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+}
+
+.tea-datepicker--range {
+  width: 100%;
+}
+
+.tea-datepicker__input {
+  flex: 1;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 0 12px;
+  font-size: 14px;
+}
+
+.tea-datepicker__separator {
+  padding: 0 4px;
+  color: #999;
+}
+
+.tea-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 16px;
+  border-radius: 3px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  margin-right: 8px;
+}
+
+.tea-btn--primary {
+  background-color: #0052d9;
+  color: #fff;
+}
+
+.tea-btn--weak {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.tea-btn--link {
+  background-color: transparent;
+  color: #0052d9;
+  padding: 0;
+}
+
+.tea-btn__icon {
+  margin-right: 4px;
+}
+
+.tea-icon {
+  font-style: normal;
+  line-height: 1;
+  display: inline-block;
+}
+
+.tea-checkbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 16px;
+}
+
+.tea-checkbox__text {
+  margin-left: 4px;
+}
+
+.tea-radio {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 16px;
+}
+
+.tea-radio__text {
+  margin-left: 4px;
+}
+
+.tea-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tea-tabs {
+  margin-bottom: 16px;
+}
+
+.tea-tabs__header {
+  display: flex;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 16px;
+}
+
+.tea-tabs__item {
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #666;
+  border-bottom: 2px solid transparent;
+  margin-right: 16px;
+}
+
+.tea-tabs__active {
+  color: #0052d9;
+  border-bottom-color: #0052d9;
+}
+
+.tea-justify {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tea-loading {
+  position: relative;
+  width: 100%;
+  min-height: 100px;
+}
+
+.tea-loading__spinner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 10;
+}
+
+.tea-loading__circle {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #f0f0f0;
+  border-top-color: #0052d9;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.tea-text {
+  font-size: 14px;
+}
+
+.tea-text--primary {
+  color: #0052d9;
+}
+
+.tea-text--success {
+  color: #2ecc71;
+}
+
+.tea-text--warning {
+  color: #f39c12;
+}
+
+.tea-text--danger {
+  color: #e74c3c;
+}
+
+.tea-text--default {
+  color: #333;
+} 

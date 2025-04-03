@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+  tencent-backend:
+    image: golang:1.21-alpine
+    container_name: tencent-backend
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - go-modules:/go/pkg/mod  # 保存Go模块缓存
+    ports:
+      - "8888:8888"
+    command: >
+      sh -c "
+        cd server && 
+        go env -w GO111MODULE=on &&
+        go env -w GOPROXY=https://goproxy.cn,direct &&
+        go mod tidy && 
+        go run main.go
+      "
+    environment:
+      - CLICKHOUSE_HOST=159.75.36.118
+      - CLICKHOUSE_PORT=5501
+      - CLICKHOUSE_DATABASE=test_db
+      - CLICKHOUSE_USER=test_user
+      - CLICKHOUSE_PASSWORD=Adefault132!
+      - BACKEND_PORT=8888
+
+volumes:
+  go-modules:  # 定义持久化卷，用于缓存Go模块

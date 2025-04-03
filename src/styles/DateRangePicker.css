@@ -1,0 +1,90 @@
+.custom-date-range-picker,
+.mock-date-range-picker {
+  display: flex;
+  align-items: center;
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  background-color: #fff;
+  width: 100%;
+  height: 32px;
+}
+
+.date-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  font-size: 14px;
+  color: #333;
+  height: 100%;
+}
+
+.start-date {
+  border-right: none;
+}
+
+.end-date {
+  border-left: none;
+}
+
+.date-separator {
+  color: #ccc;
+  padding: 0 2px;
+  font-size: 14px;
+}
+
+.date-picker-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 100%;
+  cursor: pointer;
+  border-left: 1px solid #eee;
+  background-color: #f9f9f9;
+}
+
+.calendar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Tea组件的RangePicker样式覆盖 */
+.tea-datepicker-range {
+  width: 100% !important;
+}
+
+.tea-datepicker-input {
+  border-radius: 2px !important;
+}
+
+/* 日志查询页面特定样式 */
+.log-query-date-range {
+  display: flex;
+  align-items: center;
+}
+
+.log-query-date-range .date-range-wrapper {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.log-query-button {
+  min-width: 80px;
+  height: 32px;
+  background-color: #006eff;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.log-query-button:hover {
+  background-color: #0057cc;
+} 

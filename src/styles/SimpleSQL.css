@@ -1,0 +1,497 @@
+/* SimpleSQL 组件样式 */
+.sql-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: #f5f5f5;
+  padding: 16px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 标签页样式 */
+.tabs-container {
+  margin-bottom: 16px;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+}
+
+.tab-button {
+  padding: 8px 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #666;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.tab-button:hover {
+  color: #0052d9;
+}
+
+.tab-button.active {
+  color: #0052d9;
+  font-weight: 500;
+}
+
+.tab-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #0052d9;
+}
+
+/* SQL编辑器样式 */
+.editor-container {
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.sql-textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #fff;
+  resize: vertical;
+}
+
+.sql-textarea:focus {
+  outline: none;
+  border-color: #0052d9;
+  box-shadow: 0 0 0 2px rgba(0, 82, 217, 0.2);
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.execute-button, .clear-button, .history-button {
+  padding: 6px 12px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.execute-button {
+  background-color: #0052d9;
+  color: white;
+}
+
+.execute-button:hover {
+  background-color: #003eb3;
+}
+
+.execute-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.clear-button {
+  background-color: #f0f0f0;
+  color: #666;
+}
+
+.clear-button:hover {
+  background-color: #e0e0e0;
+}
+
+.clear-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.history-button {
+  background-color: #f0f0f0;
+  color: #666;
+}
+
+.history-button:hover {
+  background-color: #e0e0e0;
+}
+
+.page-size-selector {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #666;
+  margin-left: auto;
+}
+
+.page-size-selector select {
+  margin: 0 8px;
+  padding: 4px 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+}
+
+/* 表格样式 */
+.results-container, .tables-container, .history-container, .structure-container {
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  overflow: auto;
+  margin-bottom: 16px;
+}
+
+.results-summary {
+  padding: 8px 16px;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  color: #666;
+}
+
+.table-title {
+  padding: 8px 16px;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.results-table-wrapper {
+  overflow-x: auto;
+  max-width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.results-table th {
+  position: sticky;
+  top: 0;
+  background-color: #f5f5f5;
+  padding: 10px;
+  text-align: left;
+  border-bottom: 2px solid #ddd;
+  font-weight: 600;
+}
+
+.results-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #eee;
+  max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.results-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.results-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.results-summary {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggle-columns-button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.toggle-columns-button:hover {
+  background-color: #3a70b2;
+}
+
+/* 适配移动设备 */
+@media (max-width: 768px) {
+  .results-table {
+    font-size: 12px;
+  }
+  
+  .results-table th,
+  .results-table td {
+    padding: 6px 8px;
+  }
+  
+  .results-summary {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .toggle-columns-button {
+    margin-top: 5px;
+  }
+}
+
+.tables-container .results-table tbody tr,
+.history-container .results-table tbody tr {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.tables-container .results-table tbody tr:hover,
+.history-container .results-table tbody tr:hover {
+  background-color: #f0f7ff;
+}
+
+.table-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.action-button {
+  padding: 4px 8px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 4px;
+  color: #666;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s;
+}
+
+.action-button:hover {
+  background-color: #e0e0e0;
+}
+
+.action-button.delete {
+  color: #e54545;
+}
+
+.action-button.delete:hover {
+  background-color: #ffefef;
+}
+
+.history-query {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* 加载和错误状态样式 */
+.loading, .error-message, .no-results {
+  padding: 16px;
+  text-align: center;
+}
+
+.loading {
+  color: #666;
+}
+
+.error-message {
+  color: #e54545;
+  background-color: #ffefef;
+  border-radius: 4px;
+  border: 1px solid #ffdbdb;
+}
+
+.no-results {
+  color: #999;
+  font-style: italic;
+}
+
+/* 分页控件 */
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 16px 0;
+  padding: 0 16px 16px;
+}
+
+.pagination-button {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 6px 12px;
+  margin: 0 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  transition: all 0.3s;
+}
+
+.pagination-button:hover {
+  background-color: #e0e0e0;
+}
+
+.pagination-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination-info {
+  margin: 0 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* 表结构查看样式 */
+.structure-container {
+  margin-bottom: 16px;
+}
+
+/* 查询模板样式 */
+.query-templates {
+  margin-top: 16px;
+}
+
+.templates-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 16px;
+}
+
+.template-item {
+  padding: 8px 12px;
+  background-color: #f0f7ff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #0052d9;
+  border: 1px solid #d9e8ff;
+  transition: all 0.2s;
+}
+
+.template-item:hover {
+  background-color: #e1efff;
+  border-color: #b1d3ff;
+}
+
+/* 保存查询对话框 */
+.save-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.save-dialog-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.save-dialog-content {
+  position: relative;
+  background-color: white;
+  border-radius: 4px;
+  padding: 0;
+  width: 500px;
+  max-width: 90%;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+}
+
+.save-dialog-header {
+  padding: 16px;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.save-dialog-body {
+  padding: 16px;
+}
+
+.save-query-name {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.save-dialog-query {
+  max-height: 150px;
+  overflow: auto;
+  padding: 12px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  color: #333;
+}
+
+.save-dialog-footer {
+  padding: 16px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.save-button, .cancel-button {
+  padding: 6px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.save-button {
+  background-color: #0052d9;
+  color: white;
+}
+
+.save-button:hover {
+  background-color: #003eb3;
+}
+
+.save-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.cancel-button {
+  background-color: #f0f0f0;
+  color: #666;
+}
+
+.cancel-button:hover {
+  background-color: #e0e0e0;
+} 

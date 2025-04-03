@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<clickhouse>
+    <!-- 监听配置 -->
+    <listen_host>0.0.0.0</listen_host>
+    <http_port>8123</http_port>
+    <tcp_port>9000</tcp_port>
+    <interserver_http_port>9009</interserver_http_port>
+    
+    <!-- 内存和缓存配置 -->
+    <max_memory_usage>10000000000</max_memory_usage>
+    <max_server_memory_usage>0</max_server_memory_usage>
+    
+    <!-- 临时数据配置 -->
+    <tmp_path>/var/lib/clickhouse/tmp/</tmp_path>
+    <user_files_path>/var/lib/clickhouse/user_files/</user_files_path>
+    
+    <!-- 日志配置 -->
+    <logger>
+        <level>trace</level>
+        <log>/var/log/clickhouse-server/clickhouse-server.log</log>
+        <errorlog>/var/log/clickhouse-server/clickhouse-server.err.log</errorlog>
+        <size>1000M</size>
+        <count>10</count>
+    </logger>
+    
+    <!-- CORS配置允许所有跨域请求 -->
+    <http_headers>
+        <header>
+            <name>Access-Control-Allow-Origin</name>
+            <value>*</value>
+        </header>
+        <header>
+            <name>Access-Control-Allow-Methods</name>
+            <value>GET, POST, OPTIONS</value>
+        </header>
+        <header>
+            <name>Access-Control-Allow-Headers</name>
+            <value>Origin, X-Requested-With, Content-Type, Accept</value>
+        </header>
+    </http_headers>
+    
+    <!-- 允许简单的SQL查询记录，方便调试 -->
+    <query_log>
+        <database>system</database>
+        <table>query_log</table>
+        <partition_by>toYYYYMM(event_date)</partition_by>
+        <flush_interval_milliseconds>7500</flush_interval_milliseconds>
+    </query_log>
+</clickhouse> 

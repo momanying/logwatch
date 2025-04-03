@@ -1,0 +1,1334 @@
+/* 日志查询页面样式 */
+.log-viewer-container {
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f7f7;
+}
+
+/* 页头部分 */
+.log-viewer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 16px 20px;
+  background-color: white;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.log-viewer-header h1 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+}
+
+.location-selector {
+  display: flex;
+  align-items: center;
+}
+
+.location-selector .tea-select {
+  width: 100px;
+}
+
+.location-selector span {
+  margin-right: 8px;
+  color: #666;
+}
+
+/* 顶部导航 */
+.top-nav {
+  display: flex;
+  background-color: #fff;
+  border-bottom: 1px solid #e8e8e8;
+  margin-bottom: 15px;
+  padding: 0 20px;
+}
+
+.top-nav a {
+  padding: 12px 20px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.top-nav a:hover {
+  color: #006eff;
+}
+
+.top-nav a.active {
+  color: #006eff;
+  font-weight: 500;
+}
+
+.top-nav a.active:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #006eff;
+}
+
+/* 卡片组件 */
+.tea-card {
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  margin: 0 15px 15px;
+}
+
+.tea-card__body {
+  padding: 20px;
+}
+
+.tea-card__title {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+/* 表单组件 */
+.tea-form {
+  margin-bottom: 20px;
+}
+
+.filter-row {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.filter-label {
+  font-size: 13px;
+  color: #333;
+  margin-right: 12px;
+  font-weight: 500;
+}
+
+.date-range-picker {
+  flex: 1;
+  margin-right: 12px;
+}
+
+.tea-form__item {
+  margin-bottom: 16px;
+}
+
+.tea-form__label {
+  font-size: 13px;
+  color: #333;
+  margin-bottom: 8px;
+  font-weight: normal;
+}
+
+.tea-form__control {
+  width: 100%;
+}
+
+.button-group {
+  display: flex;
+  margin: 8px 0 16px;
+}
+
+.button-group button {
+  margin-right: 8px;
+}
+
+/* 复选框 */
+.tea-checkbox {
+  font-size: 13px;
+  color: #333;
+}
+
+/* Lucene开关 */
+.lucene-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 10px;
+}
+
+.toggle-switch {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.toggle-track {
+  width: 36px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #dcdee0;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.toggle-track.active {
+  background-color: #006eff;
+}
+
+.toggle-indicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: all 0.2s ease;
+}
+
+.toggle-track.active .toggle-indicator {
+  left: 18px;
+}
+
+.toggle-label {
+  margin-left: 8px;
+  font-size: 13px;
+  color: #333;
+}
+
+/* 日志内容区域 */
+.log-content {
+  display: flex;
+  padding: 0;
+}
+
+.log-content section {
+  width: 100%;
+}
+
+.log-content .tea-row {
+  width: 100%;
+}
+
+/* 左侧边栏样式 */
+.log-sidebar {
+  background-color: #fafafa;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  height: calc(100vh - 320px);
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* 字段选择器样式 */
+.field-selector {
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.field-selector .tea-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+}
+
+.field-selector .tea-card__body {
+  padding: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.field-selector .tea-form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* 字段列表容器 */
+.field-list-container {
+  flex: 1;
+  overflow-y: auto;
+  border-top: 1px solid #eee;
+  padding: 4px 0;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+}
+
+.field-list-container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.field-list-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.field-list-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+
+/* 字段选择项 */
+.field-item {
+  padding: 10px 16px;
+  border-bottom: 1px solid #f5f5f5;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.field-item:hover {
+  background-color: #f0f7ff;
+  border-left-color: #3080fe;
+}
+
+.field-item:last-child {
+  border-bottom: none;
+}
+
+/* 字段组标题 */
+.field-group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: #f5f7fa;
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.field-group-header .tea-text {
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+}
+
+/* 操作按钮 */
+.field-actions {
+  display: flex;
+}
+
+.select-all-btn {
+  cursor: pointer;
+  margin-right: 12px;
+  font-size: 13px;
+}
+
+.clear-btn {
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.select-all-btn:hover,
+.clear-btn:hover {
+  color: #0052cc;
+  text-decoration: underline;
+}
+
+/* 复选框样式 */
+.field-item .tea-checkbox__label {
+  font-size: 13px;
+  color: #454545;
+}
+
+.field-item .tea-checkbox--checked + .tea-checkbox__label,
+.field-item .tea-checkbox.tea-checkbox--checked .tea-checkbox__label {
+  color: #3080fe;
+  font-weight: 500;
+}
+
+/* 日志主区域 */
+.log-main {
+  padding-left: 15px;
+}
+
+/* 日志表格容器 */
+.log-table-container {
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 2px;
+  margin-bottom: 20px;
+  transition: opacity 0.3s ease;
+}
+
+.log-table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.log-count {
+  font-size: 13px;
+  color: #666;
+}
+
+.log-options {
+  display: flex;
+  align-items: center;
+}
+
+.log-options .tea-checkbox {
+  margin-right: 16px;
+}
+
+/* 表格样式 */
+.tea-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tea-table th {
+  background-color: #f5f5f5;
+  padding: 10px 15px;
+  text-align: left;
+  font-weight: 500;
+  color: #333;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 13px;
+}
+
+.tea-table td {
+  padding: 10px 15px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 13px;
+  color: #333;
+}
+
+.tea-table tr:hover {
+  background-color: #f5f9ff;
+}
+
+.log-date {
+  color: #666;
+}
+
+.log-level {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 2px;
+  font-size: 12px;
+}
+
+.log-level-error {
+  background-color: #fff0f0;
+  color: #d93026;
+}
+
+.log-level-warning {
+  background-color: #fff7e6;
+  color: #fa8c16;
+}
+
+.log-level-info {
+  background-color: #e6f7ff;
+  color: #1890ff;
+}
+
+.log-level-aegis\.report {
+  background-color: #f6ffed;
+  color: #52c41a;
+}
+
+.log-message {
+  word-break: break-word;
+}
+
+/* 加载中样式 */
+.loading-container {
+  position: relative;
+  min-height: 200px;
+}
+
+.tea-loading__circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #006eff;
+  border-radius: 50%;
+  animation: tea-loading-spin 1s linear infinite;
+}
+
+@keyframes tea-loading-spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* 日志详情容器 */
+.log-detail-container {
+  margin-top: 20px;
+}
+
+.log-detail-card {
+  background-color: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 2px;
+  padding: 20px;
+}
+
+.log-detail-props {
+  margin-bottom: 20px;
+}
+
+.prop-item {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.prop-label {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.prop-value {
+  font-size: 13px;
+  color: #333;
+  word-break: break-word;
+}
+
+.prop-value a {
+  color: #006eff;
+  text-decoration: none;
+}
+
+.prop-value a:hover {
+  text-decoration: underline;
+}
+
+/* 详情部分 */
+.log-detail-sections {
+  margin: 20px 0;
+}
+
+.detail-section {
+  margin-bottom: 20px;
+}
+
+.detail-section h3 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin: 0 0 10px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.detail-section-content {
+  padding: 0 10px;
+}
+
+.tag-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag {
+  margin: 0 16px 8px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.tag-label {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 2px;
+}
+
+.tag-value {
+  font-size: 13px;
+  color: #333;
+}
+
+/* 设备信息区域 */
+.device-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.device-icons {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.device-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 12px;
+  font-size: 20px;
+  color: #006eff;
+}
+
+.device-icon-browser, .device-icon-os {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.device-icon-browser span, .device-icon-os span {
+  font-size: 11px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  padding: 4px;
+}
+
+.device-details {
+  margin-top: 8px;
+}
+
+/* 日志详情操作区域 */
+.log-detail-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+/* 错误消息 */
+.error-message {
+  margin: 15px;
+  padding: 10px 15px;
+  background-color: #fff2f0;
+  border: 1px solid #ffccc7;
+  border-radius: 2px;
+  color: #f5222d;
+  font-size: 13px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 主体内容 */
+.log-main-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* 按钮 */
+.tea-btn {
+  min-width: 80px;
+  height: 32px;
+  font-size: 13px;
+  border-radius: 3px;
+}
+
+.tea-btn--primary {
+  background-color: #006eff;
+  border-color: #006eff;
+}
+
+.tea-btn--primary:hover {
+  background-color: #0057cc;
+  border-color: #0057cc;
+}
+
+.tea-btn--weak {
+  color: #006eff;
+  border-color: #006eff;
+  background: transparent;
+}
+
+.tea-btn--weak:hover {
+  background-color: rgba(0, 110, 255, 0.05);
+}
+
+/* 输入框 */
+.tea-input {
+  height: 32px;
+  border: 1px solid #dcdee0;
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+
+.tea-input input {
+  height: 100%;
+  padding: 0 12px;
+  font-size: 13px;
+  color: #333;
+  background-color: transparent;
+}
+
+.tea-input:hover input,
+.tea-input input:focus {
+  border-color: #0091ff;
+}
+
+/* 选择器 */
+.tea-select {
+  height: 32px;
+  border: 1px solid #dcdee0;
+  border-radius: 3px;
+}
+
+.tea-select select {
+  padding: 0 30px 0 12px;
+  font-size: 13px;
+  height: 100%;
+  color: #333;
+}
+
+.tea-select:hover select {
+  border-color: #0091ff;
+}
+
+/* 文本 */
+.tea-text {
+  color: #333;
+}
+
+.tea-text--primary {
+  color: #006eff;
+}
+
+/* 弹性对齐 */
+.tea-justify {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tea-justify__left,
+.tea-justify__right {
+  display: flex;
+  align-items: center;
+}
+
+/* 图标 */
+.tea-icon {
+  font-size: 16px;
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 按钮组间隔 */
+.filter-section .tea-btn {
+  margin-right: 8px;
+}
+
+/* 表单章节 */
+section {
+  margin-bottom: 16px;
+}
+
+/* 响应式调整 */
+@media (max-width: 1200px) {
+  .log-view-layout {
+    flex-direction: column;
+  }
+  
+  .log-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 16px;
+  }
+}
+
+/* Grid 组件样式优化 */
+.tea-grid {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tea-grid-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -8px;
+  margin-right: -8px;
+  box-sizing: border-box;
+}
+
+.tea-grid-col {
+  padding-left: 8px;
+  padding-right: 8px;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+}
+
+.tea-grid-col-24 { width: 100%; }
+.tea-grid-col-23 { width: 95.83333333%; }
+.tea-grid-col-22 { width: 91.66666667%; }
+.tea-grid-col-21 { width: 87.5%; }
+.tea-grid-col-20 { width: 83.33333333%; }
+.tea-grid-col-19 { width: 79.16666667%; }
+.tea-grid-col-18 { width: 75%; }
+.tea-grid-col-17 { width: 70.83333333%; }
+.tea-grid-col-16 { width: 66.66666667%; }
+.tea-grid-col-15 { width: 62.5%; }
+.tea-grid-col-14 { width: 58.33333333%; }
+.tea-grid-col-13 { width: 54.16666667%; }
+.tea-grid-col-12 { width: 50%; }
+.tea-grid-col-11 { width: 45.83333333%; }
+.tea-grid-col-10 { width: 41.66666667%; }
+.tea-grid-col-9 { width: 37.5%; }
+.tea-grid-col-8 { width: 33.33333333%; }
+.tea-grid-col-7 { width: 29.16666667%; }
+.tea-grid-col-6 { width: 25%; }
+.tea-grid-col-5 { width: 20.83333333%; }
+.tea-grid-col-4 { width: 16.66666667%; }
+.tea-grid-col-3 { width: 12.5%; }
+.tea-grid-col-2 { width: 8.33333333%; }
+.tea-grid-col-1 { width: 4.16666667%; }
+
+/* 添加section样式以匹配图示中的布局 */
+section:last-child {
+  margin-bottom: 0;
+}
+
+/* 调整Row和Col的样式 */
+.tea-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+.tea-col {
+  padding-left: 8px;
+  padding-right: 8px;
+  box-sizing: border-box;
+}
+
+/* 列宽度定义 */
+.tea-col-24 { width: 100%; }
+.tea-col-23 { width: 95.83333333%; }
+.tea-col-22 { width: 91.66666667%; }
+.tea-col-21 { width: 87.5%; }
+.tea-col-20 { width: 83.33333333%; }
+.tea-col-19 { width: 79.16666667%; }
+.tea-col-18 { width: 75%; }
+.tea-col-17 { width: 70.83333333%; }
+.tea-col-16 { width: 66.66666667%; }
+.tea-col-15 { width: 62.5%; }
+.tea-col-14 { width: 58.33333333%; }
+.tea-col-13 { width: 54.16666667%; }
+.tea-col-12 { width: 50%; }
+.tea-col-11 { width: 45.83333333%; }
+.tea-col-10 { width: 41.66666667%; }
+.tea-col-9 { width: 37.5%; }
+.tea-col-8 { width: 33.33333333%; }
+.tea-col-7 { width: 29.16666667%; }
+.tea-col-6 { width: 25%; }
+.tea-col-5 { width: 20.83333333%; }
+.tea-col-4 { width: 16.66666667%; }
+.tea-col-3 { width: 12.5%; }
+.tea-col-2 { width: 8.33333333%; }
+.tea-col-1 { width: 4.16666667%; }
+
+/* KV7表数据查询样式 */
+.simple-pagination {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.page-info {
+  margin: 0 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.page-size-select {
+  margin-left: 15px;
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+}
+
+.log-detail-panel {
+  position: fixed;
+  top: 10%;
+  right: 10px;
+  width: 40%;
+  max-width: 600px;
+  height: 80%;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+  background-color: #f8f8f8;
+}
+
+.detail-header h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.detail-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px;
+}
+
+.detail-item {
+  margin-bottom: 8px;
+  border-bottom: 1px dashed #eee;
+  padding-bottom: 8px;
+}
+
+.detail-key {
+  font-weight: bold;
+  color: #333;
+  margin-right: 5px;
+}
+
+.detail-value {
+  word-break: break-all;
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.error-message {
+  margin: 15px 0;
+  padding: 10px 15px;
+  border-radius: 4px;
+  background-color: #fff2f0;
+  border: 1px solid #ffccc7;
+}
+
+/* 缓存提示样式 */
+.cache-notice {
+  margin: 10px 0;
+  padding: 8px 15px;
+  background-color: #fffbe6;
+  border: 1px solid #ffe58f;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 加载动画增强 */
+.loading-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-overlay .tea-loading {
+  margin-bottom: 10px;
+}
+
+.loading-text {
+  font-size: 14px;
+  color: #666;
+  margin-top: 8px;
+}
+
+/* 增强错误消息样式 */
+.error-message {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.error-message .tea-btn {
+  margin-top: 8px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 表格样式优化 */
+.log-table-container {
+  transition: opacity 0.3s ease;
+}
+
+.log-table-container.loading {
+  opacity: 0.6;
+}
+
+/* 添加响应式适配 */
+@media (max-width: 768px) {
+  .log-detail-panel {
+    width: 80%;
+    right: 10%;
+    left: 10%;
+  }
+  
+  .simple-pagination {
+    flex-wrap: wrap;
+  }
+  
+  .page-size-select {
+    margin-top: 10px;
+  }
+}
+
+/* 动态表单样式 */
+.dynamic-log-form {
+  width: 100%;
+}
+
+.field-group {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 15px;
+}
+
+.field-group:last-child {
+  border-bottom: none;
+}
+
+.field-group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.field-actions {
+  display: flex;
+  align-items: center;
+}
+
+.field-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.field-item {
+  width: 50%;
+  margin-bottom: 8px;
+}
+
+/* 日志详情样式 */
+.log-network-section,
+.log-region-section,
+.log-device-section {
+  margin-bottom: 20px;
+}
+
+.network-tags,
+.region-tags,
+.device-tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.tag-item {
+  background-color: #f5f5f5;
+  border-radius: 3px;
+  padding: 5px 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tag-label {
+  font-size: 12px;
+  color: #888;
+}
+
+.tag-value {
+  font-size: 14px;
+  word-break: break-all;
+  max-width: 200px;
+}
+
+/* 设备图标样式 */
+.device-icons {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.device-icon {
+  margin-right: 20px;
+}
+
+.browser-icon,
+.os-icon {
+  display: flex;
+  align-items: center;
+}
+
+.browser-icon span,
+.os-icon span {
+  margin-left: 5px;
+}
+
+/* 日志详情页额外信息 */
+.log-detail-extra,
+.log-detail-stack {
+  margin-top: 20px;
+}
+
+.extra-content,
+.stack-content {
+  background-color: #f5f5f5;
+  border-radius: 3px;
+  padding: 10px;
+  margin-top: 10px;
+  overflow-x: auto;
+}
+
+.extra-content pre,
+.stack-content pre {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+/* 日志详情操作按钮 */
+.log-detail-actions {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* 自定义数据表单样式 */
+.custom-data-group {
+  margin-top: 15px;
+}
+
+.custom-data-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.custom-data-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.custom-data-item {
+  padding: 8px;
+  background: #f9f9f9;
+  border-radius: 4px;
+}
+
+.custom-data-key {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.custom-data-value {
+  font-size: 14px;
+  word-break: break-all;
+}
+
+/* 响应式调整 */
+@media (max-width: 1200px) {
+  .field-item {
+    width: 100%;
+  }
+}
+
+/* 表格中没有字段选中时的提示 */
+.no-fields-message {
+  display: block;
+  padding: 20px;
+  text-align: center;
+  color: #999;
+  font-style: italic;
+}
+
+/* 日志表格容器 */
+.log-table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* 日志详情样式 */
+.log-detail-container {
+  margin-top: 20px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+/* 操作按钮样式 */
+.select-all-btn {
+  cursor: pointer;
+  margin-right: 12px;
+  font-size: 13px;
+}
+
+.clear-btn {
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.select-all-btn:hover,
+.clear-btn:hover {
+  color: #0052cc;
+  text-decoration: underline;
+}
+
+/* 滚动条美化 */
+.field-list-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.field-list-container::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-radius: 3px;
+}
+
+.field-list-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.field-list-container::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+/* 表头样式 */
+.field-group-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eaeaea;
+  margin-bottom: 0;
+}
+
+.field-group-header .tea-text {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* 分页和数据库信息展示样式 */
+.log-count {
+  font-size: 13px;
+  color: #666;
+}
+
+.pagination-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  background-color: #fafafa;
+}
+
+.page-size-selector {
+  display: flex;
+  align-items: center;
+}
+
+.page-size-selector span {
+  margin-right: 8px;
+  font-size: 13px;
+  color: #666;
+}
+
+.page-size-select {
+  padding: 5px 10px;
+  border: 1px solid #dcdee0;
+  border-radius: 3px;
+  font-size: 13px;
+  color: #333;
+  background-color: #fff;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+}
+
+.pagination-btn {
+  min-width: 80px;
+  height: 32px;
+  font-size: 13px;
+  border-radius: 3px;
+  background-color: #fff;
+  border: 1px solid #dcdee0;
+  color: #333;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  border-color: #0057cc;
+  color: #0057cc;
+}
+
+.pagination-btn:disabled {
+  color: #ccc;
+  border-color: #eee;
+  cursor: not-allowed;
+}
+
+.current-page {
+  margin: 0 10px;
+  font-size: 13px;
+  color: #333;
+} 

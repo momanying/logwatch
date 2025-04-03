@@ -1,0 +1,104 @@
+.data-analytics-container {
+  padding: 16px;
+}
+
+.analytics-tabs {
+  margin-bottom: 20px;
+}
+
+.analytics-filters {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f7f7f7;
+  border-radius: 4px;
+}
+
+.analytics-data-table {
+  margin-top: 20px;
+}
+
+/* 表格样式优化 */
+.tea-table__thead th {
+  background-color: #f0f2f5;
+  font-weight: 600;
+}
+
+.tea-table__row:hover {
+  background-color: #f5faff;
+}
+
+/* 日期选择器样式优化 */
+.tea-datepicker__input {
+  min-width: 230px;
+}
+
+/* 加载状态样式 */
+.tea-loading__content {
+  min-height: 300px;
+}
+
+/* 卡片标题样式 */
+.tea-card__title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.tea-card__subtitle {
+  color: #888;
+  font-size: 14px;
+}
+
+/* 记录详情样式 */
+.record-detail {
+  max-height: 70vh;
+  overflow-y: auto;
+  padding: 0 10px;
+}
+
+.detail-core-fields {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.detail-field {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.detail-label {
+  font-weight: 500;
+  min-width: 120px;
+  color: #666;
+}
+
+.detail-value {
+  flex: 1;
+  word-break: break-all;
+}
+
+.detail-section {
+  margin-top: 16px;
+  margin-bottom: 24px;
+  border-top: 1px solid #eee;
+  padding-top: 12px;
+}
+
+.detail-section h4 {
+  margin-bottom: 12px;
+  color: #444;
+}
+
+.detail-section-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .detail-core-fields,
+  .detail-section-content {
+    grid-template-columns: 1fr;
+  }
+} 
